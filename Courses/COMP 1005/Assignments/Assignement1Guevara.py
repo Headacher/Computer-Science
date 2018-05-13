@@ -2,7 +2,7 @@
 
 def human_years():
     if dogorcat=="dog":
-        print("Your pet is " + str(pet_age*7)  +" in human years!")
+        print("Your pet is " + str(int(pet_age)*7)  +" in human years!")
     else:
         print("Your pet is " + str(pet_age*5) + " in human years!")
     
@@ -43,19 +43,21 @@ if dogorcat == "cat" or  dogorcat == "dog":
     
     print("Welcome " + dogorcat + " owner! I'm going to ask you some quetions about " + pet_name)
     
-    pet_age = int(input("How old is your pet in years?"))
-    pet_weight = int(input("What is its weight in pounds?"))
-    pet_height = int(input("What is its height in inches?"))
-    pet_speed = int(input("How many miles can it run in an hour?"))
+    while True: 
+        try:
+            pet_age = int(float(input("How old is your pet in years?")))
+            pet_weight = int(float(input("What is its weight in pounds?")))
+            pet_height = int(float(input("What is its height in inches?")))
+            pet_speed = int(float(input("How many miles can it run in an hour?")))
+            break
+        except ValueError:
+            print("That's not a valid number! Try again.")
     
     human_years()
     pet_life_stage()
     kilograms_to_pounds()
     inches_to_centimeters()
     km_to_miles()
-    
-            
-    
     
     print("That's all I can say about " + pet_name + " the " + dogorcat + ".")
     
